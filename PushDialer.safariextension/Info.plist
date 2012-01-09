@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Author</key>
+  <string>Push Dialer, LLC</string>
+  <key>Builder Version</key>
+  <string>7534.52.7</string>
+  <key>CFBundleDisplayName</key>
+  <string>PushDialer</string>
+  <key>CFBundleIdentifier</key>
+  <string>com.pushdialer.desktop.SafariExtension</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.7</string>
+  <key>CFBundleVersion</key>
+  <string>1.7</string>
+  <key>Chrome</key>
+  <dict>
+    <key>Context Menu Items</key>
+    <array>
+      <dict>
+        <key>Command</key>
+        <string>dialNumber</string>
+        <key>Identifier</key>
+        <string>dialNumberMenuItem</string>
+        <key>Title</key>
+        <string>Dial Number on iPhone</string>
+      </dict>
+    </array>
+    <key>Global Page</key>
+    <string>PushDialer.html</string>
+  </dict>
+  <key>Content</key>
+  <dict>
+    <key>Scripts</key>
+    <dict>
+      <key>Start</key>
+      <array>
+        <string>PushDialer.js</string>
+      </array>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Provides a context menu item for dialing phone numbers on your iPhone.</string>
+  <key>ExtensionInfoDictionaryVersion</key>
+  <string>1.0</string>
+  <key>Permissions</key>
+  <dict>
+    <key>Website Access</key>
+    <dict>
+      <key>Include Secure Pages</key>
+      <true/>
+      <key>Level</key>
+      <string>All</string>
+    </dict>
+  </dict>
+  <key>Website</key>
+  <string>http://pushdialer.com/</string>
+</dict>
+</plist>

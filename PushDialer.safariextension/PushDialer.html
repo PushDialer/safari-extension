@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script>
+      safari.application.addEventListener("command", performCommand, false);
+      safari.application.addEventListener("validate", validateCommand, false);
+      safari.application.addEventListener("message", handleMessage, false);
+
+      function performCommand(event)
+      {
+        if (event.command !== "dialNumber")
+          return;
+
+        var query = event.userInfo;
+        query = query.replace(/\s+/g, "+");
+
+        var dialUrl = "pushdialer://" + query;
+        safari.application.activeBrowserWindow.activeTab.url = dialUrl;
+      }
+
+      function validateCommand(event)
+      {
+        var contextText = event.userInfo;
+        var phoneNumberExpression = /([0-9+(]{1}[0-9 (.\/-]{2,}([0-9A-Z()\/]{1,4}[ .\/-]?){2,}[0-9A-Z][0-9A-Z]{1,2}([,;0-9]+))/m;
+        var phoneNumber;
+
+        var match = contextText.match(phoneNumberExpression);
+        if (match)
+        {
+          // window.console.log('Matched!');
+          // window.console.log("Number: " + match[0]);
+          phoneNumber = match[0];
+        }
+        else
+        {
+          // window.console.log("No match...")
+          event.target.disabled = true;
+          return false;
+        }
+
+        event.target.title = 'Dial "' + phoneNumber + '" on iPhone';
+
+        if (event.command !== "dialNumber" || contextText === undefined)
+          return;
+      }
+
+      function handleMessage(event)
+      {
+      }
+    </script>
+  </head>
+</html>
